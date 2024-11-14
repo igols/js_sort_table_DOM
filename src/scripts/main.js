@@ -11,7 +11,9 @@ thead.addEventListener('click', (e) => {
   const index = th.indexOf(e.target);
 
   const rowSort = [...tbody.rows].sort((a, b) => {
-    return a.children[index].innerText - b.children[index].innerText;
+    return a.children[index].innerText.localeCompare(
+      b.children[index].innerText,
+    );
   });
 
   tbody.append(...rowSort);
